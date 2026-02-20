@@ -82,13 +82,15 @@ class YandexkassaPayment extends Payment implements \Commerce\Interfaces\Payment
 
             foreach ($items as $item) {
                 $receipt['items'][] = [
-                    'description' => mb_substr($item['name'], 0, 128),
-                    'vat_code'    => $this->getSetting('vat_code'),
-                    'quantity'    => $item['count'],
-                    'amount'      => [
+                    'description'     => mb_substr($item['name'], 0, 128),
+                    'vat_code'        => $this->getSetting('vat_code'),
+                    'quantity'        => $item['count'],
+                    'amount'          => [
                         'value'    => $item['price'],
                         'currency' => 'RUB',
                     ],
+                    'payment_mode'    => $item['meta']['payment_mode'] ?? 'full_prepayment',
+                    'payment_subject' => $item['meta']['payment_subject'] ?? 'commodity',
                 ];
             }
 
