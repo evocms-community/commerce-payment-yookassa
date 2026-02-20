@@ -11,6 +11,7 @@
  - указать/проверить **URL для уведомлений:** `https://<site_url>/commerce/yandexkassa/payment-process`
  - в подразделе **О каких событиях уведомлять** включить все, кроме `refund.succeeded` (оно не обрабатывает плагином)
 - Заполнить настройки в конфигурации плагина **Payment Yandexkassa**
+- Для отправки чеков потребуется с помощью плагина на событие OnBeforeCartItemAdding задать товарам в массиве meta элементы payment_mode и payment_subject - признак способа расчета и признак предмета расчета (**если они отличаются от full_prepayment и commodity**), [подробнее в документации](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values);
 
 ### Полезные ссылки
 - [Основной модуль Evolution CMS Commerce](https://github.com/mnoskov/commerce)
